@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  web:
+    image: httpd:2.4  # Utilise l'image officielle d'Apache
+    container_name: apache-server
+    ports:
+      - "8010:80"  # Mappe le port 8080 de l'hôte au port 80 du conteneur
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/  # Lie le dossier local "html" au dossier d'Apache dans le conteneur
+    restart: always  # Redémarre le conteneur en cas d'arrêt
